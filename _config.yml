@@ -18,3 +18,5 @@ github_username:  MarcoJMancini
 
 # Build settings
 markdown: kramdown
+
+theme: jekyll-theme-leap-day
