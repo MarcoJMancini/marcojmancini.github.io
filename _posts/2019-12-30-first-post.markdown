@@ -3,6 +3,7 @@ layout: post
 title:  "Welcome to my blog"
 date:   2019-12-30 18:55:27 +0000
 categories: Introduction about
+published: true
 ---
 
 Welcome to my new blog. I am Marco Mancini. The purpose of this blog is to organize my projects and thoughts on different topics.

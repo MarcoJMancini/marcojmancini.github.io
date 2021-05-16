@@ -2,14 +2,10 @@
 layout: post
 title:  "GKE forensics 1 - How to take a snapshot"
 date:   2020-03-13 18:55:27 +0000
-categories: GKE forensics
+categories: forensics GKE
 published: true
 
 ---
-
-# GKE forensics 1 - How to take a snapshot
-
-# Introduction
 
 
 This is a blog post as part of a series in how to collect and analyze GKE nodes in case of an incident. You can collect the virtual disk of a GKE node and analyze the data that contains this.
@@ -30,11 +26,12 @@ The first step of this will be to create a snapshot from the GKE node (Which wil
 
 In this view you need to go to `CREATE SNAPSHOT`
 
-![/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-31-27.png](/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-31-27.png)
+![Screenshot_from_2021-03-13_15-31-27.png](/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-31-27.png)
 
 Once in `CREATE SNAPSHOT` you need to select the disk from a GKE virtual machine.
-
-![/images/a6882c7d55f649ae826f200e4d352d0c/Untitled.png](/images/a6882c7d55f649ae826f200e4d352d0c/Untitled.png)
+<p align="center">
+ <img src="/images/a6882c7d55f649ae826f200e4d352d0c/Untitled.png" alt="Create Snapshot"/>
+</p>
 
 This process will create a snapshot, this can be used to create a new machine, but there is no way of extracting a snapshot from GCP.
 
@@ -46,17 +43,17 @@ Moreover, Images can be exported. Which is not the case with snapshots.
 
 You need to go to the [`Compute Engine > Storage > Images`](https://console.cloud.google.com/compute/images)
 
-![/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-31-54.png](/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-31-54.png)
+![Screenshot_from_2021-03-13_15-31-54.png](/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-31-54.png)
 
 There you need to `CREATE IMAGE`
 
-![/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-32-29.png](/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-32-29.png)
+![Screenshot_from_2021-03-13_15-32-29.png](/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-32-29.png)
 
 Give a clear name and use the source snapshot the GKE node you want to analyze.
 
 The image once is complete will look like this.
 
-![/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-32-57.png](/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-32-57.png)
+![Screenshot_from_2021-03-13_15-32-57.png](/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-32-57.png)
 
 Take note of the `EXPORT` function, This will be used to move the image to a bucket. (If you have already a bucket to store the exported files you can skip the next chapter)
 
@@ -64,13 +61,15 @@ Take note of the `EXPORT` function, This will be used to move the image to a buc
 
 You still cannot download the image directly, you need to store it into a bucket. To create one you need to go to [`Storage > Browser`](https://console.cloud.google.com/storage/browser)
 
-![/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-36-55.png](/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-36-55.png)
+![Screenshot_from_2021-03-13_15-36-55.png](/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-36-55.png)
 
 Here you can see `CREATE BUCKET`. Make sure it's on the region closes to your operations and also it should only be accessible by the analysts that need access to the forensic images.
 
 The images shouldn't contain secrets but if the docker images are configured improperly. Proprietary information could be present.
 
-![/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-37-48.png](/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-37-48.png)
+<p align="center">
+ <img src="/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-37-48.png" alt="Screenshot_from_2021-03-13_15-37-48.png"/>
+</p>
 
 ## Move Image to Bucket
 
@@ -78,11 +77,11 @@ The last step is to move the image to a bucket, so it can be imported.
 
 On oath you will see all the available bucket. Use the one create for the forensic analysis.
 
-![/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-33-40.png](/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-33-40.png)
+![Screenshot_from_2021-03-13_15-33-40.png](/images/a6882c7d55f649ae826f200e4d352d0c/Screenshot_from_2021-03-13_15-33-40.png)
 
 This process will take a while but after it's completed you will find the file in your bucket.
 
-![/images/a6882c7d55f649ae826f200e4d352d0c/Untitled%201.png](/images/a6882c7d55f649ae826f200e4d352d0c/Untitled%201.png)
+![Untitled1.png](/images/a6882c7d55f649ae826f200e4d352d0c/Untitled1.png)
 
 From here you can download the file into your filesystem and initiate the investigation.
 
