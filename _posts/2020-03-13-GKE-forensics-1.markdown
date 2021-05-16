@@ -96,7 +96,11 @@ I will see you in the next piece of this guide, in which we will learn to extrac
 # References
 
 [GCP - create-snapshots](https://cloud.google.com/compute/docs/disks/create-snapshots)
+
 [GCP - export-image](https://cloud.google.com/compute/docs/images/export-image)
+
 [GCP - security-overview](https://cloud.google.com/kubernetes-engine/docs/concepts/security-overview)
+
 [GCP - containers-kubernetes](https://cloud.google.com/blog/products/containers-kubernetes)
+
 [GCP - Blog - introducing-google-container-engine-gke-node-pools](https://cloud.google.com/blog/products/gcp/introducing-google-container-engine-gke-node-pools)
