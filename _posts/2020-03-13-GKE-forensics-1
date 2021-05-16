@@ -3,11 +3,14 @@ layout: post
 title:  "GKE forensics 1 - How to take a snapshot"
 date:   2020-03-13 18:55:27 +0000
 categories: GKE forensics
+published: true
+
 ---
 
 # GKE forensics 1 - How to take a snapshot
 
 # Introduction
+
 
 This is a blog post as part of a series in how to collect and analyze GKE nodes in case of an incident. You can collect the virtual disk of a GKE node and analyze the data that contains this.
 
@@ -17,7 +20,7 @@ This guide only explains how to collect the filesystem but an extension to doing
 
 ## What is a GKE Node?
 
-A GKE (Google Kubernetes Engine) nodes are the machine in which pods and containers will run when you create a Kubernetes cluster with the GCP Kubernetes managed service. 
+A GKE (Google Kubernetes Engine) nodes are the machine in which pods and containers will run when you create a Kubernetes cluster with the GCP Kubernetes managed service.
 
 This node are bare bones but are based on a linux system, the most important details you will find in these systems are logs (journal) and the docker repositories and container metadata. This can be useful if you are investigating if a pod has been breached and illicit pods have been spun out.
 
