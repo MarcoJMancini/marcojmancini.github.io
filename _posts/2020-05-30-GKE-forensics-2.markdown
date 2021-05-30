@@ -28,9 +28,9 @@ We can just extract the files using 7zip. This will "extract" all the partitions
 
 There is 2 important commands related to 7zip.
 
-```bash
+~~~~~~~~
 7zip -l gke-forensics.vmdk
-```
+~~~~~~~~
 
 This command will list all the metadata files and hard drives.
 
@@ -42,9 +42,9 @@ There are also the ROOT and KERNEL files, but these files should be analysed onl
 
 ## Extract partitions
 
-```jsx
+~~~~~~~~
 7zip -x gke-forensics.vmdk
-```
+~~~~~~~~
 
 This command will extract the files inside the vmdk file.
 
@@ -52,27 +52,27 @@ This command will extract the files inside the vmdk file.
 
 Once you have the files extracted from the .vmdk you will want to mount them in your own file system. This will make the hard drive a normal folder in your filesystem so all files can be read.
 
-```bash
+~~~~~~~~
 Add format to hard drive
-```
+~~~~~~~~
 
 This will add the necesary format to the hard drive so we can do the following command,
 
-```bash
+~~~~~~~~
 guestmount
-```
+~~~~~~~~
 
 This command has the following operators:
 
- -o  means read only
+ [`-o  means read only`]
 
 output folder
 
-Finally when you are done analysing the information you can use the following command to unmount the filesystem.
+Finally when you are done analysing the information you can use the following command to unmount the filesystem.\
 
-```bash
+~~~~~~~~
 use the umount the remove the folder
-```
+~~~~~~~~
 
 # Conclusions
 
