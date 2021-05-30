@@ -34,7 +34,7 @@ There is 2 important commands related to 7zip.
 
 This command will list all the metadata files and hard drives.
 
-<Add output of files>
+- Add output of files
 
 The most important of which is the STATE.img file.
 
