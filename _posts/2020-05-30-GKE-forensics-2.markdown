@@ -64,11 +64,11 @@ guestmount
 
 This command has the following operators:
 
- [`-o  means read only`]
+`-o  means read only`
 
 output folder
 
-Finally when you are done analysing the information you can use the following command to unmount the filesystem.\
+Finally when you are done analysing the information you can use the following command to unmount the filesystem.
 
 ~~~~~~~~
 use the umount the remove the folder
