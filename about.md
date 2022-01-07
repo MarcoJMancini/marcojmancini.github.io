@@ -12,4 +12,4 @@ If you want to ask me any questions, you can reach me on twitter :) (The link to
 
 This blog is done with {% include icon-github.html username="MarcoJMancini" %} /
 [Github-pages](https://github.com/MarcoJMancini/marcojmancini.github.io) and {% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll).
+[jekyll](https://github.com/jekyll/jekyll)
