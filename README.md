@@ -1,4 +1,4 @@
-# marcojmancini.github.io
+# marcojmancini blog repo
 Personal blog, repository of experiments   [https://marcojmancini.com/](https://marcojmancini.com/)
 
 
