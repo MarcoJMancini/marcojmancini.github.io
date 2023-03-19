@@ -15,4 +15,4 @@ You can also find me on [linkedin](https://www.linkedin.com/in/marco-mancini-002
 
 This blog is done with {% include icon-github.html username="MarcoJMancini" %} /
 [Github-pages](https://github.com/MarcoJMancini/marcojmancini.github.io) and {% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+[jekyll](https://github.com/jekyll/jekyll)  
